@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{6386A787-C351-433D-A2ED-A4A8505E0477}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\LICENSE = ..\LICENSE
+		..\.github\workflows\publish.yml = ..\.github\workflows\publish.yml
+		..\README.md = ..\README.md
+		..\stylecop.json = ..\stylecop.json
+		..\version.json = ..\version.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFT.SlottedTimers", "FFT.SlottedTimers\FFT.SlottedTimers.csproj", "{F5B19067-02D6-4676-8C55-D9AB08648163}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFT.SlottedTimers.Tests", "FFT.SlottedTimers.Tests\FFT.SlottedTimers.Tests.csproj", "{4D5786E6-9EDE-4C6D-803F-C1C65D4D74F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFT.SlottedTimers.Examples", "FFT.SlottedTimers.Examples\FFT.SlottedTimers.Examples.csproj", "{57D09F98-B3CB-4B03-AE61-051AE46FC152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5B19067-02D6-4676-8C55-D9AB08648163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B19067-02D6-4676-8C55-D9AB08648163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B19067-02D6-4676-8C55-D9AB08648163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B19067-02D6-4676-8C55-D9AB08648163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5786E6-9EDE-4C6D-803F-C1C65D4D74F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5786E6-9EDE-4C6D-803F-C1C65D4D74F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5786E6-9EDE-4C6D-803F-C1C65D4D74F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5786E6-9EDE-4C6D-803F-C1C65D4D74F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D09F98-B3CB-4B03-AE61-051AE46FC152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D09F98-B3CB-4B03-AE61-051AE46FC152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D09F98-B3CB-4B03-AE61-051AE46FC152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D09F98-B3CB-4B03-AE61-051AE46FC152}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32E6D321-86B3-43E1-BAB3-6EDE6E774A6E}
+	EndGlobalSection
+EndGlobal
