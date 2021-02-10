@@ -49,6 +49,7 @@ private class ClientConnection : IDisposable
 
   private object? _data;
 
+  // Reusing a singleton instance of the SlottedTimer. Important!
   public ClientConnection(SlottedTimer timer)
   {
     _timer = timer;
