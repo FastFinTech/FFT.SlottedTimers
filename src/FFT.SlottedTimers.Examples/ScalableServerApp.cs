@@ -69,16 +69,21 @@ namespace FFT.SlottedTimers.Examples
           {
             // Create a 250ms interval from the time we started doing work.
             var interval = _app._timer.WaitAsync(ClientConnectionIntervalMS, _cts.Token);
-            //var interval = Task.Delay(ClientConnectionIntervalMS, _cts.Token);
+            try
+            {
+              // Do some pretend work
+            }
+            finally
+            {
+              // Wait until the end of the interval - the actual wait varies
+              // depending on how long it took to do the work above. Also note
+              // that we have put the await inside the finally block in order to
+              // make sure the value task is awaited even if an exception
+              // happened in the work block, so that internal resources are
+              // properly recycled.
+              await interval.ConfigureAwait(false);
+            }
 
-            // Do some pretend work
-            //for (var i = 0; i < 100; i++)
-            //{
-            //}
-
-            // Wait until the end of the interval - the actual wait varies
-            // depending on how long it took to do the work above.
-            await interval.ConfigureAwait(false);
             UpdatesCompleted++;
           }
         }

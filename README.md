@@ -95,17 +95,26 @@ private class ClientConnection : IDisposable
         // Note we don't really need the timer to be super-accurate.
         ValueTask interval = _timer.WaitAsync(250, _cancellationToken);
 
-        // Check if there is an update available
-        if (Interlocked.Exchange(ref _data, null) is object data)
+        try
         {
-          // Yes, an update is available, now send the data to the client.
-          // Oops, well, this IS DEMO code ... we imagine that data is being
-          // sent over the wire here.
-        }
 
-        // Now await the timer we created earlier. The actual wait time will
-        // vary, depending on how long it took to do the work above.
-        await interval.ConfigureAwait(false);
+          // Check if there is an update available
+          if (Interlocked.Exchange(ref _data, null) is object data)
+          {
+            // Yes, an update is available, now send the data to the client.
+            // Oops, well, this IS DEMO code ... we imagine that data is being
+            // sent over the wire here.
+          }
+        }
+        finally
+        {
+          // Now await the timer we created earlier. The actual wait time will
+          // vary, depending on how long it took to do the work above.
+          // Note we have stuck this await in a finally block to make sure the 
+          // task is awaited even if there's an exception above, in order to 
+          // properly recycle internal resources.
+          await interval.ConfigureAwait(false);
+        }
       }
     }
 
