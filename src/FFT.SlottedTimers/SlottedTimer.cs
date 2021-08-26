@@ -110,17 +110,19 @@ namespace FFT.SlottedTimers
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static long NowMS()
     {
-      GetSystemTimeAsFileTime(out var fileTime);
-      long time = 0;
-      time |= (uint)fileTime.dwHighDateTime;
-      time <<= sizeof(uint) * 8;
-      time |= (uint)fileTime.dwLowDateTime;
-      return (time + 0x701ce1722770000L) / TimeSpan.TicksPerMillisecond;
+      return DateTime.UtcNow.Ticks / TimeSpan.TicksPerMillisecond;
+      // TODO: Below doesn't work on linux ... need to replace the slow fallback above with something that works on linux too.
+      //GetSystemTimeAsFileTime(out var fileTime);
+      //long time = 0;
+      //time |= (uint)fileTime.dwHighDateTime;
+      //time <<= sizeof(uint) * 8;
+      //time |= (uint)fileTime.dwLowDateTime;
+      //return (time + 0x701ce1722770000L) / TimeSpan.TicksPerMillisecond;
     }
 
-    [DllImport("kernel32.dll", SetLastError = true)]
-    [ResourceExposure(ResourceScope.None)]
-    private static extern void GetSystemTimeAsFileTime([Out] out FILETIME time);
+    //[DllImport("kernel32.dll", SetLastError = true)]
+    //[ResourceExposure(ResourceScope.None)]
+    //private static extern void GetSystemTimeAsFileTime([Out] out FILETIME time);
 
     private async Task WorkAsync()
     {
